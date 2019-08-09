@@ -1,10 +1,19 @@
 import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
+import jsonbig from 'json-bigint'
 // import { ssrCompile } from 'vue-template-compiler'
 
 // 给 每一个 axios请求 添加一个 基础路径
 axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0/'
+axios.defaults.transformResponse = [(data) => {
+  try {
+    return jsonbig.parse(data)
+  } catch (e) {
+    return data
+  }
+}]
+
 // 请求头
 // axios.interceptors.request.use((config) => {
 //   config.headers = {
