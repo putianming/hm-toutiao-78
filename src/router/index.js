@@ -6,6 +6,8 @@ import welcome from '@/views/welcome'
 import article from '@/views/article'
 import notfond from '@/views/404'
 import store from '@/store'
+import image from '@/views/image'
+import publish from '@/views/publish'
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -30,6 +32,16 @@ const router = new VueRouter({
           path: '/article',
           name: 'article',
           component: article
+        },
+        {
+          path: '/image',
+          name: 'image',
+          component: image
+        },
+        {
+          path: '/publish',
+          name: 'publish',
+          component: publish
         }
       ]
     },
